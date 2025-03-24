@@ -3,3 +3,4 @@ target/
 allure-results/
 test-output/
 screenshots/
+reports/
