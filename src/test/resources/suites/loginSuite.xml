@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="5" name="Login Suite">
+    <listeners>
+        <listener class-name="core.listeners.TestListener" />
+    </listeners>
+    <test verbose= "1" name="Login valid scenarios">
+        <classes>
+            <class name="web.tests.LoginWebTest">
+                <methods>
+                    <include name="fillLoginWithValidCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="5" name="Api test">
+    <listeners>
+        <listener class-name="core.listeners.TestListener" />
+    </listeners>
+    <test verbose= "1" name="API scenarios">
+        <classes>
+            <class name="api.tests.APITest" />
+        </classes>
+    </test>
+</suite>
