@@ -6,7 +6,7 @@
     </listeners>
     <test verbose= "1" name="API scenarios">
         <classes>
-            <class name="api.tests.APITest" />
+            <class name="core.runner.TestRunner" />
         </classes>
     </test>
 </suite>

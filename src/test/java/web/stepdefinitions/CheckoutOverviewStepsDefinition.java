@@ -1,4 +1,4 @@
-package web.stepsdefinitions;
+package web.stepdefinitions;
 
 import io.cucumber.java.en.When;
 import web.tasks.CheckoutOverviewTasks;

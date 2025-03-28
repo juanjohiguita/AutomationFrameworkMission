@@ -6,8 +6,7 @@
     </listeners>
     <test verbose= "1" name="Web scenarios">
         <classes>
-            <class name="web.tests.LoginWebTest"/>
-            <class name="web.tests.PurchaseWebTest"/>
+            <class name="core.runner.TestRunner"/>
         </classes>
     </test>
 </suite>

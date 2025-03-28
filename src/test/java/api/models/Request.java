@@ -1,4 +1,4 @@
-package api;
+package api.models;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;

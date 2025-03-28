@@ -1,4 +1,4 @@
-package web.stepsdefinitions;
+package web.stepdefinitions;
 
 import core.utils.UserFileReader;
 import io.cucumber.java.en.When;

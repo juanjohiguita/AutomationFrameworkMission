@@ -1,4 +1,4 @@
-package web.runner;
+package core.runner;
 
 import core.listeners.TestListener;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -8,7 +8,7 @@ import org.testng.annotations.Listeners;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = {"web/stepsdefinitions"},
+        glue = {"api/stepdefinitions", "web/stepdefinitions"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {"pretty",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",

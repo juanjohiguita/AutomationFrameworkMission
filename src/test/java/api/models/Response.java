@@ -1,4 +1,4 @@
-package api;
+package api.models;
 
 import io.restassured.response.ResponseBody;
 import lombok.AllArgsConstructor;

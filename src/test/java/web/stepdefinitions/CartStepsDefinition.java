@@ -1,4 +1,4 @@
-package web.stepsdefinitions;
+package web.stepdefinitions;
 
 import core.actions.WaitActions;
 import io.cucumber.java.en.Then;
