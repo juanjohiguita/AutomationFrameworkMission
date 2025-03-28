@@ -13,9 +13,13 @@ pipeline {
                 sh 'mvn clean test -DsuiteXmlFiles=testng.xml -Dbrowser.name=chrome -Dheadless.mode=false -Denvironment=Test -Dcucumber.filter.tags="@this" -DthreadCount=2 -Dwindows.size=1920,1080'
             }
         }
-        stage('Generate Allure Report') {
+        stage('Publish Allure Report') {
             steps {
-                sh 'allure serve ./allure-results'
+                allure([
+                    includeProperties = false;
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-report']]
+                ])
             }
         }
         stage('Deploy') {
