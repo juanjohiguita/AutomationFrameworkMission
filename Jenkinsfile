@@ -15,15 +15,7 @@ pipeline {
         }
         stage('Generate Allure Report') {
             steps {
-                sh 'allure generate --clean -o allure-report'
-            }
-        }
-        stage('Publish Allure Report') {
-            steps {
-                allure([
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'allure-report']]
-                ])
+                sh 'allure serve ./allure-results'
             }
         }
         stage('Deploy') {
