@@ -7,7 +7,7 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Start Selenium Grid) {
+        stage('Start Selenium Grid') {
             steps {
                 script {
                      sh 'docker-compose up -d'
@@ -29,7 +29,7 @@ pipeline {
                 ])
             }
         }
-        stage('Stop Selenium Grid) {
+        stage('Stop Selenium Grid') {
             steps {
                 script {
                      sh 'docker-compose down'
