@@ -7,6 +7,13 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Start Selenium Grid) {
+            steps {
+                script {
+                     sh 'docker-compose up -d'
+                }
+            }
+        }
         stage('Test') {
             steps {
                 // No need to change the directory if pom.xml is in the root
@@ -20,6 +27,13 @@ pipeline {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'allure-report']],
                 ])
+            }
+        }
+        stage('Stop Selenium Grid) {
+            steps {
+                script {
+                     sh 'docker-compose down'
+                }
             }
         }
         stage('Deploy') {
