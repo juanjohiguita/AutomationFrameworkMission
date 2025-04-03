@@ -2,9 +2,11 @@ package web.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lombok.NoArgsConstructor;
 import web.questions.InventoryQuestions;
 import web.tasks.InventoryScreenTasks;
 
+@NoArgsConstructor
 public class InventoryStepsDefinition {
     InventoryScreenTasks inventoryPageTasks = new InventoryScreenTasks();
     InventoryQuestions inventoryQuestions = new InventoryQuestions();

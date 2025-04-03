@@ -3,11 +3,13 @@ package web.stepdefinitions;
 import core.utils.UserFileReader;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
+import lombok.NoArgsConstructor;
 import web.questions.LoginQuestions;
 import web.tasks.LoginTasks;
 
 import static core.utils.TestContextManager.getTestContext;
 
+@NoArgsConstructor
 public class LoginStepsDefinition {
     LoginTasks loginTasks = new LoginTasks();
     LoginQuestions loginQuestions = new LoginQuestions();
