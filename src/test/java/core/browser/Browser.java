@@ -43,13 +43,13 @@ public class Browser {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             if (browser.equalsIgnoreCase("chrome")) {
                 capabilities.setCapability("browserName", "chrome");
-                return new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), capabilities);
+                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
             } else if (browser.equalsIgnoreCase("firefox")) {
                 capabilities.setCapability("browserName", "firefox");
-                return new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), capabilities);
+                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
             } else {
                 capabilities.setCapability("browserName", "edge");
-                return new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), capabilities);
+                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException("Invalid Selenium Grid URL", e);
