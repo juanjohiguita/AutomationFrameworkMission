@@ -1,5 +1,6 @@
 Feature: Purchase
 
+  @this
   Scenario: Purchase
     When I fill login with valid credentials
     Then The inventory page is displayed
