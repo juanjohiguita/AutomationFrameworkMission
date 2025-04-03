@@ -22,9 +22,9 @@ public class Hooks {
         //SoftAssertManager.getSoftAssert().assertAll();
     }
 
-    @After(order = 1)
+    @After(order = 0)
     public void closeDriver() {
-        BaseScreen.getDriver().quit();
+        BaseScreen.getDriver().close();
     }
 
 }
