@@ -30,11 +30,10 @@ public abstract class BaseScreen {
         return driverThreadLocal.get();
     }
 
-    public static void quitDriver() {
+    public static void closeDriver() {
         WebDriver driver = getDriver();
         if(driver != null) {
-            driver.quit();
-            driverThreadLocal.remove();
+            driver.close();
         }
     }
 

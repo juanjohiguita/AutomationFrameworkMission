@@ -1,5 +1,6 @@
 package core.listeners;
 
+import core.pages.basePage.BaseScreen;
 import org.testng.*;
 
 public class TestListener implements ITestListener, IExecutionListener{
@@ -17,6 +18,13 @@ public class TestListener implements ITestListener, IExecutionListener{
     @Override
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
+        BaseScreen.closeDriver();
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        ITestListener.super.onTestFailure(result);
+        BaseScreen.closeDriver();
     }
 
     /*
