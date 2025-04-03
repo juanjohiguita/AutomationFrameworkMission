@@ -41,8 +41,8 @@ public class Browser {
     }
 
     private WebDriver createRemoteWebDriver(String browser) {
-        String url = "http://selenium:4444/wd/hub";
-        //String url = "http://localhost:4444/wd/hub"; esto para ejecucion local con 
+        String url = "http://localhost:4444/wd/hub";
+        //String url = "http://localhost:4444/wd/hub"; esto para ejecucion local con
         try {
             if (browser.equalsIgnoreCase("chrome")) {
                 ChromeOptions options = new ChromeOptions();
