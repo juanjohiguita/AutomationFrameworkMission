@@ -16,13 +16,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 @UtilityClass
 public class Browser {
 
     @SneakyThrows
     public static WebDriver createWebDriver() {
         ConfigReader configReader = new ConfigReader();
-        return createDriver(configReader.getBrowser());
+        String browser = "chrome";
+        return createDriver(browser);
     }
 
     private static WebDriver createDriver(String browser) {
@@ -39,19 +41,20 @@ public class Browser {
     }
 
     private WebDriver createRemoteWebDriver(String browser) {
+        String url = "http://172.18.0.5:5555";
         try {
             if (browser.equalsIgnoreCase("chrome")) {
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--incognito");
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+                return new RemoteWebDriver(new URL(url), options);
             } else if (browser.equalsIgnoreCase("firefox")) {
                 FirefoxOptions options = new FirefoxOptions();
                 options.addArguments("--incognito");
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+                return new RemoteWebDriver(new URL(url), options);
             } else {
                 EdgeOptions options = new EdgeOptions();
                 options.addArguments("--incognito");
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+                return new RemoteWebDriver(new URL(url), options);
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException("Invalid Selenium Grid URL", e);
