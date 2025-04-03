@@ -24,7 +24,7 @@ public class Hooks {
 
     @After(order = 0)
     public void closeDriver() {
-        BaseScreen.getDriver().close();
+        BaseScreen.closeDriver();
     }
 
 }

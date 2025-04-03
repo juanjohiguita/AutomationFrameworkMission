@@ -34,6 +34,7 @@ public abstract class BaseScreen {
         WebDriver driver = getDriver();
         if(driver != null) {
             driver.close();
+            driverThreadLocal.remove();
         }
     }
 
