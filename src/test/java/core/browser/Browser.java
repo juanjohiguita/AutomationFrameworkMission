@@ -40,16 +40,18 @@ public class Browser {
 
     private WebDriver createRemoteWebDriver(String browser) {
         try {
-            DesiredCapabilities capabilities = new DesiredCapabilities();
             if (browser.equalsIgnoreCase("chrome")) {
-                capabilities.setCapability("browserName", "chrome");
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--incognito");
+                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
             } else if (browser.equalsIgnoreCase("firefox")) {
-                capabilities.setCapability("browserName", "firefox");
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--incognito");
+                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
             } else {
-                capabilities.setCapability("browserName", "edge");
-                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                EdgeOptions options = new EdgeOptions();
+                options.addArguments("--incognito");
+                return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException("Invalid Selenium Grid URL", e);
