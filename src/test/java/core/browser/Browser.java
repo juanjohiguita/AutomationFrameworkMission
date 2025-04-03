@@ -10,6 +10,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 @UtilityClass
 public class Browser {
@@ -17,7 +22,48 @@ public class Browser {
     @SneakyThrows
     public static WebDriver createWebDriver() {
         ConfigReader configReader = new ConfigReader();
-        return createDriverByBrowserName(configReader.getBrowser());
+        return createDriver(configReader.getBrowser());
+    }
+
+    private static WebDriver createDriver(String browser) {
+        if(isRemoteExecution()) {
+            return createRemoteWebDriver(browser);
+        } else {
+            return createLocalWebDriver(browser);
+        }
+    }
+
+    private boolean isRemoteExecution() {
+        //TO-DO INDENTIFY IF IS REMOTE
+        return true;
+    }
+
+    private WebDriver createRemoteWebDriver(String browser) {
+        try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            if (browser.equalsIgnoreCase("chrome")) {
+                capabilities.setCapability("browserName", "chrome");
+                return new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), capabilities);
+            } else if (browser.equalsIgnoreCase("firefox")) {
+                capabilities.setCapability("browserName", "firefox");
+                return new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), capabilities);
+            } else {
+                capabilities.setCapability("browserName", "edge");
+                return new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), capabilities);
+            }
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Invalid Selenium Grid URL", e);
+        }
+    }
+
+    private WebDriver createLocalWebDriver(String browser) {
+        if (browser.equalsIgnoreCase("chrome")) {
+            return createChromeDriver();
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            return createFirefoxDriver();
+        } else {
+            return createEdgeDriver();
+        }
     }
 
     public static WebDriver createDriverByBrowserName(String browser) {
@@ -35,6 +81,8 @@ public class Browser {
         options.addArguments("--incognito");
         return new ChromeDriver(options);
     }
+
+
 
     public static WebDriver createFirefoxDriver(){
         FirefoxOptions options = new FirefoxOptions();
