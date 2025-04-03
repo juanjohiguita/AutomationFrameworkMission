@@ -4,7 +4,7 @@ pipeline {
         stage('Clone') {
             steps {
                 // No need to change the directory if pom.xml is in the root
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
         stage('Test') {

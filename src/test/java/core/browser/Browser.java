@@ -41,7 +41,7 @@ public class Browser {
     }
 
     private WebDriver createRemoteWebDriver(String browser) {
-        String url = "http://172.18.0.5:5555";
+        String url = "http://localhost:4444/wd/hub";
         try {
             if (browser.equalsIgnoreCase("chrome")) {
                 ChromeOptions options = new ChromeOptions();
