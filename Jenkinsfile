@@ -22,10 +22,20 @@ pipeline {
                 ])
             }
         }
+        stage('Notify Slack') {
+            steps {
+                script {
+                    def buildUrl = "http://localhost:8080/job/AutomationFramework/"
+                    def reportUrl = "${buildUrl}allure/"
+                    slackSend(channel: '#tu-canal', message: "Las pruebas han finalizado. Puedes ver los resultados aquí: ${reportUrl}")
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
             }
         }
+
     }
 }
