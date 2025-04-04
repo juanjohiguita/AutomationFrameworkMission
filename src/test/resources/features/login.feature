@@ -1,6 +1,5 @@
 Feature: Login
-
-  @this
+  
   Scenario: Login with valid credentials
     When I fill login with valid credentials
     Then The inventory page is displayed
