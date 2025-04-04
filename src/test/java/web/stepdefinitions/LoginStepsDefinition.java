@@ -9,10 +9,13 @@ import web.tasks.LoginTasks;
 
 import static core.utils.TestContextManager.getTestContext;
 
-@NoArgsConstructor
 public class LoginStepsDefinition {
     LoginTasks loginTasks = new LoginTasks();
     LoginQuestions loginQuestions = new LoginQuestions();
+
+    public LoginStepsDefinition(){
+
+    }
 
     @When("I fill login with valid credentials")
     public void iFillLoginWithValidCredentials() {

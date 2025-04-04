@@ -4,9 +4,12 @@ import io.cucumber.java.en.Then;
 import lombok.NoArgsConstructor;
 import web.tasks.CheckoutInformationScreenTasks;
 
-@NoArgsConstructor
 public class CheckoutInformationStepsDefinition {
     CheckoutInformationScreenTasks checkoutInformationPageTasks = new CheckoutInformationScreenTasks();
+
+    public CheckoutInformationStepsDefinition(){
+
+    }
 
     @Then("I fill the checkout information")
     public void iFillTheCheckoutInformation() {

@@ -5,9 +5,12 @@ import io.cucumber.java.en.Then;
 import lombok.NoArgsConstructor;
 import web.tasks.CartScreenTasks;
 
-@NoArgsConstructor
 public class CartStepsDefinition {
     CartScreenTasks cartTasks = new CartScreenTasks();
+
+    public CartStepsDefinition(){
+
+    }
 
     @Then("I click on checkout button")
     public void iClickOnCheckoutButton() {

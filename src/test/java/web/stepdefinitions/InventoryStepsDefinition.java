@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import web.questions.InventoryQuestions;
 import web.tasks.InventoryScreenTasks;
 
-@NoArgsConstructor
 public class InventoryStepsDefinition {
     InventoryScreenTasks inventoryPageTasks = new InventoryScreenTasks();
     InventoryQuestions inventoryQuestions = new InventoryQuestions();
 
+    public InventoryStepsDefinition(){
+
+    }
 
     @Then("The inventory page is displayed")
     public void iGetTheInventory (){
