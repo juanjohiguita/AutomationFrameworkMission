@@ -27,7 +27,7 @@ pipeline {
                 script {
                     def buildUrl = "http://localhost:8080/job/AutomationFramework/"
                     def reportUrl = "${buildUrl}allure/"
-                    slackSend(channel: '#slackjenkins', message: "Las pruebas han finalizado. Puedes ver los resultados aquí: ${reportUrl}")
+                    slackSend(channel: '#slackjenkins', message: "Las pruebas han finalizado. Puedes ver los resultados aquí: ${reportUrl}", tokenCredentialId:'slack-token')
                 }
             }
         }
